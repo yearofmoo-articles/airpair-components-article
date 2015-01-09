@@ -15,15 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'angular.js',
-      'angular-mocks.js',
-      'multiplication-app.js',
-      './**/*-tpl.html',
+      'app/angular.js',
+      'test/angular-mocks.js',
+      'app/multiplication-app.js',
+      'app/**/*-tpl.html',
       'test/multiplicationSpec.js'
     ],
 
     //add this in too
     ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/',
       moduleName: 'appTemplates'
     },
 
@@ -36,7 +37,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.html': ['ng-html2js']
+      'app/**/*.html': ['ng-html2js']
     },
 
 
